@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BW1 - TEAM 6</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/welcome.css" />
   </head>
   <body>
     <header>
@@ -15,20 +16,22 @@
         Welcome to <br />
         <span>your exam</span>
       </h1>
-      <div>
+      <div class="main-text">
         <h3>Instructions</h3>
         <p>We don’t expect most engineers to know the answers to all of these questions, so don’t worry if you’re unsure of a few of them.</p>
       </div>
       <ul>
-        <li>Each question is timed and can only be answered once.</li>
-        <li>Changing browser tab or opening other windows will invalidate the question.</li>
-        <li>This exam will take approx. 0–5 minutes.</li>
+        <li>Each question is <strong>timed</strong> and can only be <strong>answered once</strong>.</li>
+        <li>Changing browser tab or opening other windows will <strong>invalidate the question</strong>.</li>
+        <li>This exam will take approx. <strong>0–5 minutes</strong>.</li>
       </ul>
-      <div>
-        <input type="checkbox" id="nohelp" />
-        <label for="nohelp">I promise to answer myself without help from anyone</label>
-        <button class="next-btn" type="button">PROCEED</button>
-      </div>
+      <form>
+        <span>
+          <input type="checkbox" id="nohelp" checked="checked" required />
+          <label for="nohelp">I promise to answer myself without help from anyone </label></span
+        >
+        <a href="test.html"><button class="next-btn" type="button">PROCEED</button></a>
+      </form>
     </main>
     <script src="./assets/js/welcome.js"></script>
   </body>
