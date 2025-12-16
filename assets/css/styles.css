@@ -41,6 +41,11 @@ h3 {
   font-weight: 600;
 }
 
+.logo-epicode {
+  max-width: 150px;
+  margin-top: 3rem;
+}
+
 .next-btn {
   background-color: #00ffff;
   padding: 1rem 3rem;
