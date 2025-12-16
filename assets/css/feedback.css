@@ -6,7 +6,7 @@ section {
   text-align: center;
 }
 
-h1 {
+h2 {
   margin-bottom: 3%;
   font-size: 50px;
   font-weight: 650;
@@ -47,4 +47,9 @@ p {
 
 .star {
   display: inline-block;
+  color: #17163d;
+}
+
+.starActive {
+  color: #00ffff;
 }
