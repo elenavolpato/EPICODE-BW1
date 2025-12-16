@@ -4,32 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feedback Page</title>
+    <link rel="stylesheet" href="./assets/css/feedback.css" />
   </head>
   <body>
     <header>
-      <img src="./assets/imgs/epicode_logo.png" alt="epicode_logo" />
+      <img src="./assets/imgs/epicode_logo.png" alt="Epicode_logo" />
     </header>
-    <section>
-      <h1>Tell us how it's going</h1>
-      <p>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</p>
-      <!-- Sono i div che vorrei redere cliccabili per selezionare le stelle -->
-      <div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </section>
-    <section>
-      <p>Leave us an open feedback about your experience so far</p>
-      <input type="text" placeholder="Write your comment here" />
-      <button>MORE INFO</button>
-    </section>
+    <main>
+      <section>
+        <h1>Tell us how it's going</h1>
+        <p>From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</p>
+        <!-- Sono i div che vorrei redere cliccabili per selezionare le stelle -->
+        <div id="ratingStars">
+          <div class="star"><img src="./assets/imgs/star.svg" alt="Rating_star" /></div>
+          <div><img src="./assets/imgs/star.svg" alt="Rating_star" /></div>
+          <div><img src="./assets/imgs/star.svg" alt="Rating_star" /></div>
+          <div><img src="./assets/imgs/star.svg" alt="Rating_star" /></div>
+          <div><img src="./assets/imgs/star.svg" alt="Rating_star" /></div>
+          <div><img src="./assets/imgs/star.svg" alt="Rating_star" /></div>
+          <div><img src="./assets/imgs/star.svg" alt="Rating_star" /></div>
+          <div><img src="./assets/imgs/star.svg" alt="Rating_star" /></div>
+          <div><img src="./assets/imgs/star.svg" alt="Rating_star" /></div>
+          <div><img src="./assets/imgs/star.svg" alt="Rating_star" /></div>
+        </div>
+      </section>
+      <section>
+        <p>Leave us an open feedback about your experience so far</p>
+        <input type="text" placeholder="Write your comment here" />
+        <button>MORE INFO</button>
+      </section>
+    </main>
   </body>
 </html>
