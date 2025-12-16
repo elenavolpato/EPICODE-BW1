@@ -1,0 +1,121 @@
+body {
+  margin: 0 auto;
+  max-width: 90%;
+}
+header img {
+  width: 15%;
+  margin-top: 2%;
+}
+main {
+  margin-top: -5%;
+}
+#firstSection {
+  width: 50%;
+  margin-inline: auto;
+  text-align: center;
+}
+#firstSection h2 {
+  font-weight: 600;
+  font-size: 400%;
+}
+#firstSection h3 {
+  color: white;
+  font-weight: 300;
+  margin-top: -1%;
+  opacity: 0.8;
+}
+#leftSection {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  opacity: 0.8;
+}
+#leftSection h2 {
+  margin-top: 0;
+}
+#leftSection p {
+  margin: 0;
+}
+#rightSection {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  opacity: 0.8;
+}
+#rightSection h2 {
+  margin-top: 0;
+}
+#rightSection p {
+  margin: 0;
+}
+#containerMiddleSection {
+  width: 90%;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 3%;
+}
+#cake {
+  width: 35%;
+  margin-inline: 10%;
+  text-align: center;
+  position: relative;
+}
+#grafico {
+  width: 100%;
+}
+.percentage {
+  font-size: 200%;
+  font-weight: 300;
+}
+.percentageNumber {
+  font-weight: 600;
+}
+.p {
+  font-size: 60%;
+  opacity: 0.5;
+}
+#cakeText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 80%;
+}
+#cakeText p {
+  margin-top: 10%;
+  opacity: 0.6;
+}
+.titleCake {
+  color: white;
+  font-size: 150%;
+  margin-block: 0;
+}
+.acqua {
+  color: #00f2f5;
+}
+#button {
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+}
+#button button {
+  width: 20%;
+  height: 20%;
+  padding-block: 1.5%;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  opacity: 0.8;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 120%;
+  border: 2px solid white;
+  box-shadow: 2px 0px 10px rgb(142, 142, 142);
+}
