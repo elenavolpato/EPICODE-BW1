@@ -26,8 +26,12 @@ header div h1 {
 main {
   margin-top: 15%;
 }
-main h1 {
+main h2 {
   text-align: center;
+}
+
+h3 {
+  color: white;
 }
 #answers {
   margin-top: 10%;
@@ -54,7 +58,7 @@ main h1 {
 #answers div:hover {
   background: linear-gradient(180deg, #be008c 0%, #8d007a 100%) padding-box, linear-gradient(175deg, rgba(246, 246, 248, 1) 0%, #b91592 100%) border-box;
 }
-#footerNumber {
+.purple-text {
   color: blueviolet;
 }
 #qCounter {
@@ -74,4 +78,12 @@ main h1 {
 h3 {
   font-size: 21px;
   letter-spacing: 4px;
+}
+
+.type-of-question-section {
+  display: flex;
+  justify-content: space-between;
+}
+#typeOfQuestionText {
+  margin-block: auto;
 }
