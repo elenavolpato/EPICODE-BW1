@@ -54,41 +54,66 @@ const Questions = [
   },
 ];
 
-const Question = () => {
+const renderQuestion = () => {
   question.innerText = Questions[counter].question;
-  answer1.innerText = Questions[counter].answer[0];
-  answer2.innerText = Questions[counter].answer[1];
-  answer3.innerText = Questions[counter].answer[2];
-  answer4.innerText = Questions[counter].answer[3];
+  for (let i = 0; i < 4; i++) {
+    let eachAnswer = document.querySelector(`#answer${i + 1}`);
+    console.log(eachAnswer);
+    eachAnswer.innerText = Questions[counter].answer[i];
+  }
 };
 
-answers.onclick = (e) => {
-  switch (counter) {
-    case 0:
-      if (e.target.id === "answer1") answerTrue.push("*");
-      else answerFalse.push("*");
-      break;
-    case 1:
-      if (e.target.id === "answer2") answerTrue.push("*");
-      else answerFalse.push("*");
-      break;
-    case 2:
-      if (e.target.id === "answer3") answerTrue.push("*");
-      else answerFalse.push("*");
-      break;
-    case 3:
-      if (e.target.id === "answer4") answerTrue.push("*");
-      else answerFalse.push("*");
-      break;
-    case 4:
-      if (e.target.id === "answer2") answerTrue.push("*");
-      else answerFalse.push("*");
-      break;
+const attachAnswerListeners = function () {
+  for (let i = 0; i < 5; i++) {
+    const answerElement = document.getElementById(`answer${i + 1}`);
+
+    if (answerElement) {
+      answerElement.onclick = handleClickAnswer;
+    }
+  }
+};
+const handleClickAnswer = function (e) {
+  const clickedId = e.target.id;
+  console.log(clickedId);
+
+  if (counter < 5) {
+    for (let i = 0; i < 5; i++) {
+      if (clickedId === `answers${Questions[i].correctAnswer}`) {
+        answerTrue.push("*");
+      } else {
+        answerFalse.push("*");
+      }
+      renderQuestion;
+    }
+  } else {
+    window.location.href = "results.html";
   }
   counter++;
   numerator.innerText = counter;
   numberCountDown.innerText = 30;
-  if (counter < 5) Question();
-  else window.location.href = "result.html";
 };
-Question();
+/*  switch (counter) {
+      case 0:
+        if (e.target.id === "answer1") answerTrue.push("*");
+        else answerFalse.push("*");
+        break;
+      case 1:
+        if (e.target.id === "answer2") answerTrue.push("*");
+        else answerFalse.push("*");
+        break;
+      case 2:
+        if (e.target.id === "answer3") answerTrue.push("*");
+        else answerFalse.push("*");
+        break;
+      case 3:
+        if (e.target.id === "answer4") answerTrue.push("*");
+        else answerFalse.push("*");
+        break;
+      case 4:
+        if (e.target.id === "answer2") answerTrue.push("*");
+        else answerFalse.push("*");
+        break;
+    }*/
+
+attachAnswerListeners();
+renderQuestion();
