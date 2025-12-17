@@ -102,8 +102,6 @@ const questions = [
   },
 ];
 
-const currentQuestion = questions[questionsCounter];
-console.log(currentQuestion);
 document.getElementById("totalQuestions").innerText = questions.length;
 
 // separate next button function
@@ -135,15 +133,15 @@ const attachAnswerListeners = function (arr) {
     }
   }
 };
-
+let correctAnswers = 0;
+let wrongAnswers = 0;
 const handleClickAnswer = function (e) {
+  const currentQuestion = questions[questionsCounter];
   const clickedText = e.target.innerText;
-  let correctAnswers = 0;
-  let wrongAnswers = 0;
 
   if (questionsCounter < questions.length) {
     if (currentQuestion.type === "multiple") {
-      if (clickedText === questions.correct_answer) {
+      if (clickedText === currentQuestion.correct_answer) {
         correctAnswers++;
       } else {
         wrongAnswers++;
@@ -151,7 +149,7 @@ const handleClickAnswer = function (e) {
     }
     if (currentQuestion.type === "boolean") {
       console.log(e);
-      if (clickedText === "True") {
+      if (clickedText === currentQuestion.correct_answer) {
         correctAnswers++;
       } else {
         wrongAnswers++;
@@ -164,6 +162,8 @@ const handleClickAnswer = function (e) {
 };
 
 const renderQuestion = () => {
+  const currentQuestion = questions[questionsCounter];
+
   let allAnswers = []; // empties array
   questionElement.innerText = currentQuestion.question; // renders the question title
   allAnswers = currentQuestion.incorrect_answers.concat(currentQuestion.correct_answer); // arranges all answers in an array
