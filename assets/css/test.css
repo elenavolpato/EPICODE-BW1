@@ -1,0 +1,59 @@
+body {
+  width: 80%;
+  margin-inline: auto;
+}
+header img {
+  width: 15%;
+  padding-top: 5%;
+}
+header div {
+  border: 2px solid white;
+  width: 12%;
+  border-radius: 50%;
+  text-align: center;
+  float: right;
+  margin-top: 5%;
+}
+header div h1 {
+  margin-block: -10%;
+}
+header div p {
+  opacity: 0.8;
+}
+header div h1 {
+  font-size: 290%;
+}
+main {
+  margin-top: 15%;
+}
+main h1 {
+  text-align: center;
+}
+#answers {
+  margin-top: 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#answers div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  border: 2px solid white;
+  border-radius: 50px;
+  text-align: center;
+  height: 100px;
+  margin-bottom: 2em;
+  font-size: 150%;
+  font-weight: 600;
+}
+#answers div:hover {
+  background-color: rgb(24, 144, 104);
+}
+#footerNumber {
+  color: blueviolet;
+}
+#qCounter {
+  text-align: center;
+}
