@@ -68,7 +68,7 @@ risposteSingole.forEach((risposta) => {
     console.log(answerTrue);
     counter++;
     numerator.innerText = counter;
-    numberCountDown.innerText = 30;
+    numberCountDown.innerText = 5;
     if (counter < 5) Question();
     else window.location.href = "results.html";
   };
@@ -78,9 +78,11 @@ const timer = setInterval(() => {
     numberCountDown.innerText -= 1;
   } else {
     counter++;
+    answerFalse.push("*");
     numerator.innerText = counter;
-    numberCountDown.innerText = 30;
+    numberCountDown.innerText = 5;
     numerator;
+
     if (counter >= 5) window.location.href = "results.html";
     Question();
   }
