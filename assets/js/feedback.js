@@ -15,7 +15,6 @@ addstar();
 
 // Star selector
 const stars = starsContainer.querySelectorAll(".star");
-console.log(stars);
 
 for (let i = 0; i < stars.length; i++) {
   const star = stars[i];
@@ -24,5 +23,12 @@ for (let i = 0; i < stars.length; i++) {
     for (let x = 0; x < i + 1; x++) {
       stars[x].classList.add("starActive");
     }
+    const result = i + 1 + "/10";
+    console.log(result);
   });
 }
+
+const comment = document.getElementById("commentInput");
+comment.addEventListener("input", (event) => {
+  console.log(event.target.value);
+});
