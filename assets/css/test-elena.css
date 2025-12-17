@@ -64,13 +64,11 @@ main {
 #lowerCircle {
   opacity: 0.25;
   stroke-dasharray: 408;
-  stroke-dashoffset: 0;
   stroke: lightgray;
 }
 
 #upperCircle {
   stroke-dasharray: 408;
-  stroke-dashoffset: 0;
   stroke: #00ffff;
 }
 
