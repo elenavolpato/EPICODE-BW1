@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   width: 80%;
   margin-inline: auto;
@@ -6,26 +12,68 @@ header img {
   width: 15%;
   padding-top: 5%;
 }
-header div {
-  border: 2px solid white;
-  width: 12%;
-  border-radius: 50%;
+header #timerSeconds {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  float: right;
-  margin-top: 5%;
 }
-header div h1 {
+header #timerSeconds h1 {
   margin-block: -10%;
-}
-header div p {
+  font-size: 340%;
   opacity: 0.8;
 }
-header div h1 {
-  font-size: 290%;
+
+header #timerSeconds p {
+  opacity: 0.8;
+  font-size: 70%;
 }
+
 main {
   margin-top: 15%;
 }
+
+#time {
+  display: flex;
+  justify-content: right;
+}
+
+#time svg {
+  transform: rotate(-90deg);
+}
+
+#time .circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#time .circle svg circle {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  stroke-width: 15;
+  transform: translate(5px, 5px);
+}
+
+#lowerCircle {
+  opacity: 0.25;
+  stroke-dasharray: 408;
+  stroke-dashoffset: 0;
+  stroke: lightgray;
+}
+
+#upperCircle {
+  stroke-dasharray: 408;
+  stroke-dashoffset: 0;
+  stroke: #00ffff;
+}
+
 main h2 {
   text-align: center;
 }

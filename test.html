@@ -4,16 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link rel="stylesheet" href="./assets/css/test.css" />
+    <link rel="stylesheet" href="./assets/css/test-elena.css" />
     <title>Test</title>
   </head>
   <body>
     <header>
       <img src="./assets/imgs/epicode_logo.png" alt="" />
-      <div>
-        <p>Seconds</p>
-        <h1 id="numero">30</h1>
-        <p>Remaining</p>
+      <div id="time">
+        <div class="circle" style="--clr: #ffffff">
+          <svg>
+            <circle id="lowerCircle" cx="70" cy="70" r="65"></circle>
+            <circle id="upperCircle" cx="70" cy="70" r="65"></circle>
+          </svg>
+          <div id="timerSeconds">
+            <p>SECONDS</p>
+            <h1 id="numero">30</h1>
+            <p>REMAINING</p>
+          </div>
+        </div>
       </div>
     </header>
     <main>
