@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/test-elena.css" />
+
+    <title>Test</title>
+  </head>
+  <body>
+    <header>
+      <img src="./assets/imgs/epicode_logo.png" alt="" />
+
+      <div>
+        <p>Seconds</p>
+        <h1 id="numero">30</h1>
+        <p>Remaining</p>
+      </div>
+    </header>
+    <main>
+      <h2 id="question">DOMANDA</h2>
+      <div id="answers">
+        <div id="answer1" class="answer"></div>
+        <div id="answer2" class="answer"></div>
+        <div id="answer3" class="answer"></div>
+        <div id="answer4" class="answer"></div>
+      </div>
+      <div class="type-of-question-section">
+        <div id="typeOfQuestionText"></div>
+        <button class="next-btn" id="typeOfQuestionBtn">NEXT</button>
+      </div>
+      <div id="qCounter">
+        <h3>
+          QUESTION
+          <span id="currentQuestionNumber"></span>
+          <span class="purple-text"> /</span>
+          <span id="totalQuestions" class="purple-text"> </span>
+        </h3>
+      </div>
+    </main>
+    <script src="./assets/js/test-elena.js"></script>
+  </body>
+</html>
