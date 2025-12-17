@@ -161,6 +161,7 @@ const handleClickAnswer = function (e) {
   localStorage.setItem("correctAnswers", correctAnswers);
   localStorage.setItem("wrongAnswers", wrongAnswers);
 };
+
 const renderQuestion = () => {
   let allAnswers = []; // empties array
   questionElement.innerText = currentQuestion.question; // renders the question title
