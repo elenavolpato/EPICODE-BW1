@@ -70,7 +70,11 @@ risposteSingole.forEach((risposta) => {
     numerator.innerText = counter;
     numberCountDown.innerText = 5;
     if (counter < 5) Question();
-    else window.location.href = "results.html";
+    else {
+      window.location.href = "results.html";
+      localStorage.setItem("answersTrue", answerTrue.length);
+      localStorage.setItem("answersFalse", answerFalse.length);
+    }
   };
 });
 const timer = setInterval(() => {

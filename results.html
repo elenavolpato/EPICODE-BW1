@@ -19,8 +19,8 @@
       <div id="containerMiddleSection">
         <div id="leftSection" class="percentage">
           <h2>Correct</h2>
-          <h2 class="percentageNumber">78%</h2>
-          <p class="p">-/6 questions</p>
+          <h2 id="percentageNumberLeft" class="percentageNumber">78%</h2>
+          <p class="p"><span id="spanL">-</span>/6 questions</p>
         </div>
         <div id="cake">
           <canvas id="grafico"></canvas>
@@ -35,11 +35,11 @@
         </div>
         <div id="rightSection" class="percentage">
           <h2>Wrong</h2>
-          <h2 class="percentageNumber">22%</h2>
-          <p class="p">-/6 questions</p>
+          <h2 id="percentageNumberRight" class="percentageNumber">22%</h2>
+          <p class="p"><span id="spanR">-</span>/6 questions</p>
         </div>
       </div>
-      <div id="button"><button>RATE US</button></div>
+      <div id="button"><button onclick="window.location.href = 'feedback.html'">RATE US</button></div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="assets/js/results.js"></script>
