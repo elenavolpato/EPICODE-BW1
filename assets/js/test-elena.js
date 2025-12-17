@@ -103,6 +103,7 @@ const questions = [
 ];
 
 const currentQuestion = questions[questionsCounter];
+console.log(currentQuestion);
 document.getElementById("totalQuestions").innerText = questions.length;
 
 // separate next button function
