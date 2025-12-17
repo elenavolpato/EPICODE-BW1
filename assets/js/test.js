@@ -6,6 +6,11 @@ const answer2 = document.querySelector("#answer2");
 const answer3 = document.querySelector("#answer3");
 const answer4 = document.querySelector("#answer4");
 const risposteSingole = document.querySelectorAll(".answer");
+const numerator = document.querySelector("#numerator");
+let counter = 0;
+let n = 0;
+let answerTrue = [];
+let answerFalse = [];
 let arrayAnswer = [answer1, answer2, answer3, answer4];
 const Questions = [
   {
@@ -68,12 +73,6 @@ risposteSingole.forEach((risposta) => {
     else window.location.href = "results.html";
   };
 });
-const numerator = document.querySelector("#numerator");
-let counter = 0;
-let n = 0;
-let answerTrue = [];
-let answerFalse = [];
-
 const timer = setInterval(() => {
   if (parseInt(numberCountDown.innerText) > 0) {
     numberCountDown.innerText -= 1;
