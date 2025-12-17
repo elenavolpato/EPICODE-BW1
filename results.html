@@ -2,10 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=result, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/result.css" />
+    <title>Result</title>
   </head>
+  <header>
+    <img src="assets/imgs/epicode_logo.png" alt="" />
+  </header>
   <body>
-    results
+    <main>
+      <section id="firstSection">
+        <h2>Results</h2>
+        <h3>The Summary of your answers:</h3>
+      </section>
+      <div id="containerMiddleSection">
+        <div id="leftSection" class="percentage">
+          <h2>Correct</h2>
+          <h2 class="percentageNumber">78%</h2>
+          <p class="p">-/6 questions</p>
+        </div>
+        <div id="cake">
+          <canvas id="grafico"></canvas>
+          <div id="cakeText">
+            <h3 class="titleCake">Congratulations!</h3>
+            <h3 class="titleCake acqua">You passed the exam</h3>
+            <p>
+              We'll send you the certificate <br />
+              in few minutes. <br />Check your email(including promotions / spam folder)
+            </p>
+          </div>
+        </div>
+        <div id="rightSection" class="percentage">
+          <h2>Wrong</h2>
+          <h2 class="percentageNumber">22%</h2>
+          <p class="p">-/6 questions</p>
+        </div>
+      </div>
+      <div id="button"><button>RATE US</button></div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/results.js"></script>
   </body>
 </html>
