@@ -29,6 +29,10 @@ main {
 main h2 {
   text-align: center;
 }
+
+h3 {
+  color: white;
+}
 #answers {
   margin-top: 10%;
   display: flex;
@@ -51,7 +55,7 @@ main h2 {
 #answers div:hover {
   background-color: rgb(24, 144, 104);
 }
-#footerNumber {
+.purple-text {
   color: blueviolet;
 }
 #qCounter {

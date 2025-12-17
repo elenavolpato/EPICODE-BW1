@@ -1,7 +1,6 @@
 const numberCountDown = document.querySelector("#numero");
 const questionElement = document.querySelector("#question");
-const answers = document.querySelector("#answers");
-const numerator = document.getElementById("numerator");
+const currentQuestionNumber = document.getElementById("currentQuestionNumber");
 const typeOfQuestionText = document.getElementById("typeOfQuestionText");
 const typeOfQuestionBtn = document.getElementById("typeOfQuestionBtn");
 
@@ -12,9 +11,9 @@ let questionsCounter = 0;
     numberCountDown.innerText -= 1;
   } else {
     questionsCounter++;
-    numerator.innerText = questionsCounter;
+    currentQuestionNumber.innerText = questionsCounter;
     numberCountDown.innerText = 30;
-    numerator;
+    currentQuestionNumber;
     if (questionsCounter >= questions.length) window.location.href = "results.html";
     renderQuestion();
   }
@@ -104,6 +103,7 @@ const questions = [
 ];
 
 const currentQuestion = questions[questionsCounter];
+document.getElementById("totalQuestions").innerText = questions.length;
 
 // separate next button function
 const goToNextQuestion = function () {
@@ -112,7 +112,7 @@ const goToNextQuestion = function () {
     window.location.href = "results.html";
     return;
   }
-  numerator.innerText = questionsCounter;
+  currentQuestionNumber.innerText = questionsCounter + 1;
   renderQuestion();
 };
 
@@ -192,5 +192,6 @@ const renderQuestion = () => {
   attachAnswerListeners(allAnswers);
 };
 
+currentQuestionNumber.innerText = questionsCounter + 1;
 typeOfQuestionBtn.onclick = goToNextQuestion;
 renderQuestion();
