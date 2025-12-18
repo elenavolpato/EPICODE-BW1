@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 80%;
+  margin-inline: auto;
+}
+header img {
+  width: 15%;
+  padding-top: 5%;
+}
+header #timerSeconds {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+header #timerSeconds h1 {
+  margin-block: -10%;
+  font-size: 340%;
+  opacity: 0.8;
+}
+
+header #timerSeconds p {
+  opacity: 0.8;
+  font-size: 70%;
+}
+
+main {
+  margin-top: 15%;
+}
+
+#time {
+  display: flex;
+  justify-content: right;
+}
+
+#time svg {
+  transform: rotate(-90deg);
+}
+
+#time .circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#time .circle svg circle {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  stroke-width: 15;
+  transform: translate(5px, 5px);
+}
+
+#lowerCircle {
+  opacity: 0.25;
+  stroke-dasharray: 408;
+  stroke: lightgray;
+}
+
+#upperCircle {
+  stroke-dasharray: 408;
+  stroke: #00ffff;
+}
+
+main h2 {
+  text-align: center;
+}
+
+h3 {
+  color: white;
+}
+#answers {
+  margin-top: 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#answers div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  border: 4px solid transparent;
+  background: linear-gradient(172deg, rgba(36, 42, 79, 1) 0%, rgba(47, 42, 89, 1) 100%) padding-box,
+    linear-gradient(175deg, rgba(246, 246, 248, 1) 0%, rgba(47, 42, 89, 1) 100%) border-box;
+  border-radius: 60px;
+  text-align: center;
+  height: 80px;
+  margin-bottom: 2em;
+  font-size: 150%;
+  font-weight: 600;
+}
+
+#answers div:hover {
+  background: linear-gradient(180deg, #be008c 0%, #8d007a 100%) padding-box, linear-gradient(175deg, rgba(246, 246, 248, 1) 0%, #b91592 100%) border-box;
+}
+.purple-text {
+  color: blueviolet;
+}
+#qCounter {
+  text-align: center;
+  margin-top: 10%;
+}
+
+#qCounter h3 {
+  color: #ebe7ef;
+}
+
+#footerNumber {
+  color: #b51289;
+}
+
+#qCounter #footerNumber,
+h3 {
+  font-size: 21px;
+  letter-spacing: 4px;
+}
+
+.type-of-question-section {
+  display: flex;
+  justify-content: space-between;
+}
+#typeOfQuestionText {
+  margin-block: auto;
+}
+#typeOfQuestionBtn {
+  cursor: pointer;
+}
+
+#typeOfQuestionBtn:disabled {
+  cursor: not-allowed;
+}
