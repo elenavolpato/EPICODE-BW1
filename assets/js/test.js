@@ -138,6 +138,50 @@ const attachAnswerListeners = function (arr) {
 };
 let correctAnswers = 0;
 let wrongAnswers = 0;
+
+const handleClickAnswer = function (e) {
+  typeOfQuestionBtn.disabled = false;
+  const currentQuestion = questions[questionsCounter];
+  const clickedText = e.target.innerText;
+
+  if (questionsCounter < questions.length) {
+    if (currentQuestion.type === "multiple") {
+      if (clickedText === currentQuestion.correct_answer) {
+        correctAnswers++;
+      } else {
+        wrongAnswers++;
+      }
+    }
+    if (currentQuestion.type === "boolean") {
+      console.log(e);
+      if (clickedText === currentQuestion.correct_answer) {
+        correctAnswers++;
+      } else {
+        wrongAnswers++;
+      }
+      goToNextQuestion();
+    }
+  }
+  localStorage.setItem("correctAnswers", correctAnswers);
+  localStorage.setItem("wrongAnswers", wrongAnswers);
+};
+
+const renderQuestion = () => {
+  const currentQuestion = questions[questionsCounter];
+
+  let allAnswers = []; // empties array
+  questionElement.innerText = currentQuestion.question; // renders the question title
+  allAnswers = currentQuestion.incorrect_answers.concat(currentQuestion.correct_answer); // arranges all answers in an array
+  let shuffledAnswers = shuffleArray(allAnswers); // shuffled answers - used only for multiple
+
+  for (let i = 0; i < allAnswers.length; i++) {
+    let eachAnswer = document.querySelector(`#answer${i + 1}`);
+
+    }
+  }
+};
+let correctAnswers = 0;
+let wrongAnswers = 0;
 const handleClickAnswer = function (e) {
   const currentQuestion = questions[questionsCounter];
   const clickedText = e.target.innerText;
@@ -180,6 +224,7 @@ const renderQuestion = () => {
       eachAnswer.innerText = shuffledAnswers[i];
       document.getElementById("answer2").style.display = "";
       document.getElementById("answer3").style.display = "";
+      typeOfQuestionBtn.style.display = "block";
     }
     if (currentQuestion.type === "boolean") {
       eachAnswer.innerText = allAnswers[i];
@@ -198,4 +243,5 @@ const renderQuestion = () => {
 
 currentQuestionNumber.innerText = questionsCounter + 1;
 typeOfQuestionBtn.onclick = goToNextQuestion;
+typeOfQuestionBtn.disabled = true;
 renderQuestion();

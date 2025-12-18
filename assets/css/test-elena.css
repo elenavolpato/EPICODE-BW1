@@ -133,3 +133,10 @@ h3 {
 #typeOfQuestionText {
   margin-block: auto;
 }
+#typeOfQuestionBtn {
+  cursor: pointer;
+}
+
+#typeOfQuestionBtn:disabled {
+  cursor: not-allowed;
+}
