@@ -14,7 +14,7 @@ const timer = setInterval(() => {
     questionsCounter++;
     currentQuestionNumber.innerText = questionsCounter;
     numberCountDown.innerText = 30;
-    if (questionsCounter >= questions.length) window.location.href = "results.html";
+    if (questionsCounter >= questions.length) window.location.href = "./results.html";
     renderQuestion();
   }
   circleAbove.style.strokeDashoffset = -(408 - (408 * parseInt(numberCountDown.innerText)) / 30);
