@@ -141,14 +141,13 @@ let correctAnswers = 0;
 let wrongAnswers = 0;
 
 const handleClickAnswer = function (e) {
-  const allElement = document.querySelectorAll("#answers div");
-  //remove the class for the selected btn from all the divs
-  allElement.forEach((element) => element.classList.remove("selectedAnswer"));
-
   typeOfQuestionBtn.disabled = false;
   const currentQuestion = questions[questionsCounter];
   const clickedText = e.target.innerText;
 
+  const allElement = document.querySelectorAll("#answers div");
+  //remove the class for the selected btn from all the divs
+  allElement.forEach((element) => element.classList.remove("selectedAnswer"));
   const clickedElement = e.currentTarget;
   //add the class for the selected btn to the target div
   clickedElement.classList.add("selectedAnswer");
@@ -176,6 +175,9 @@ const handleClickAnswer = function (e) {
 };
 
 const renderQuestion = () => {
+  const allElement = document.querySelectorAll("#answers div");
+  //remove the class for the selected btn from all the divs
+  allElement.forEach((element) => element.classList.remove("selectedAnswer"));
   const currentQuestion = questions[questionsCounter];
 
   let allAnswers = []; // empties array
