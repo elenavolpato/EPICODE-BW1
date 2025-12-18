@@ -1,12 +1,11 @@
 const numberCountDown = document.querySelector("#numero");
-const question = document.querySelector("#question");
-const answers = document.querySelector("#answers");
-const answer1 = document.querySelector("#answer1");
-const answer2 = document.querySelector("#answer2");
-const answer3 = document.querySelector("#answer3");
-const answer4 = document.querySelector("#answer4");
-const risposteSingole = document.querySelectorAll(".answer");
-const numerator = document.querySelector("#numerator");
+const questionElement = document.querySelector("#question");
+const currentQuestionNumber = document.getElementById("currentQuestionNumber");
+const typeOfQuestionText = document.getElementById("typeOfQuestionText");
+const typeOfQuestionBtn = document.getElementById("typeOfQuestionBtn");
+const circleAbove = document.getElementById("upperCircle");
+
+let questionsCounter = 0;
 
 const timer = setInterval(() => {
   if (parseInt(numberCountDown.innerText) > 0) {
@@ -15,97 +14,187 @@ const timer = setInterval(() => {
     questionsCounter++;
     currentQuestionNumber.innerText = questionsCounter;
     numberCountDown.innerText = 30;
-    currentQuestionNumber;
-    if (questionsCounter >= questions.length) window.location.href = "results.html";
+    if (questionsCounter >= questions.length) window.location.href = "./results.html";
     renderQuestion();
   }
+  circleAbove.style.strokeDashoffset = -(408 - (408 * parseInt(numberCountDown.innerText)) / 30);
 }, 1000);
 
-let counter = 0;
-let n = 0;
-let answerTrue = [];
-let answerFalse = [];
-let arrayAnswer = [answer1, answer2, answer3, answer4];
-const Questions = [
+const questions = [
   {
-    question: "come si chiama paola?",
-    answer: ["pimpi", "pompi", "pumpi", "pimpo"],
-    correctAnswer: 0,
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "What does CPU stand for?",
+    correct_answer: "Central Processing Unit",
+    incorrect_answers: ["Central Process Unit", "Computer Personal Unit", "Central Processor Unit"],
   },
   {
-    question: "come si chiama fra?",
-    answer: ["an", "anakin", "pufd", "fdmpo"],
-    correctAnswer: 1,
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+    correct_answer: "Final",
+    incorrect_answers: ["Static", "Private", "Public"],
   },
   {
-    question: "come si chiama gio?",
-    answer: ["gio", "anakin", "giovanni", "fdmpo"],
-    correctAnswer: 2,
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "easy",
+    question: "The logo for Snapchat is a Bell.",
+    correct_answer: "False",
+    incorrect_answers: ["True"],
   },
   {
-    question: "come si chiama mamma?",
-    answer: ["an", "anakin", "pufd", "fcate"],
-    correctAnswer: 3,
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "easy",
+    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
+    correct_answer: "False",
+    incorrect_answers: ["True"],
   },
   {
-    question: "come si chiama papa?",
-    answer: ["an", "umberto", "pufd", "fcate"],
-    correctAnswer: 1,
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "What is the most preferred image format used for logos in the Wikimedia database?",
+    correct_answer: ".svg",
+    incorrect_answers: [".png", ".jpeg", ".gif"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "In web design, what does CSS stand for?",
+    correct_answer: "Cascading Style Sheet",
+    incorrect_answers: ["Counter Strike: Source", "Corrective Style Sheet", "Computer Style Sheet"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "What is the code name for the mobile operating system Android 7.0?",
+    correct_answer: "Nougat",
+    incorrect_answers: ["Ice Cream Sandwich", "Jelly Bean", "Marshmallow"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "On Twitter, what is the character limit for a Tweet?",
+    correct_answer: "140",
+    incorrect_answers: ["120", "160", "100"],
+  },
+  {
+    category: "Science: Computers",
+    type: "boolean",
+    difficulty: "easy",
+    question: "Linux was first created as an alternative to Windows XP.",
+    correct_answer: "False",
+    incorrect_answers: ["True"],
+  },
+  {
+    category: "Science: Computers",
+    type: "multiple",
+    difficulty: "easy",
+    question: "Which programming language shares its name with an island in Indonesia?",
+    correct_answer: "Java",
+    incorrect_answers: ["Python", "C", "Jakarta"],
   },
 ];
 
-risposteSingole.forEach((risposta) => {
-  risposta.onclick = (e) => {
-    switch (counter) {
-      case 0:
-        if (e.target.id === "answer1") answerTrue.push("*");
-        else answerFalse.push("*");
-        break;
-      case 1:
-        if (e.target.id === "answer2") answerTrue.push("*");
-        else answerFalse.push("*");
-        break;
-      case 2:
-        if (e.target.id === "answer3") answerTrue.push("*");
-        else answerFalse.push("*");
-        break;
-      case 3:
-        if (e.target.id === "answer4") answerTrue.push("*");
-        else answerFalse.push("*");
-        break;
-      case 4:
-        if (e.target.id === "answer2") answerTrue.push("*");
-        else answerFalse.push("*");
-        break;
+document.getElementById("totalQuestions").innerText = questions.length;
+
+// separate next button function
+const goToNextQuestion = function () {
+  questionsCounter++;
+  if (questionsCounter >= questions.length) {
+    window.location.href = "results.html";
+    return;
+  }
+  currentQuestionNumber.innerText = questionsCounter + 1;
+  renderQuestion();
+};
+
+// put all answers in an array with random position
+const shuffleArray = function (arr) {
+  const shuffled = [...arr]; // create a new array
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+const attachAnswerListeners = function (arr) {
+  for (let i = 0; i < arr.length; i++) {
+    const answerElement = document.getElementById(`answer${i + 1}`);
+    if (answerElement) {
+      answerElement.onclick = handleClickAnswer;
     }
-    console.log(answerFalse);
-    console.log(answerTrue);
-    counter++;
-    numerator.innerText = counter;
-    numberCountDown.innerText = 5;
-    if (counter < 5) Question();
-    else window.location.href = "results.html";
-  };
-});
-// const timer = setInterval(() => {
-//   if (parseInt(numberCountDown.innerText) > 0) {
-//     numberCountDown.innerText -= 1;
-//   } else {
-//     counter++;
-//     answerFalse.push("*");
-//     numerator.innerText = counter;
-//     numberCountDown.innerText = 5;
-//     numerator;
-
-//     if (counter >= 5) window.location.href = "results.html";
-//     Question();
-//   }
-// }, 1000);
-
-const Question = () => {
-  question.innerText = Questions[counter].question;
-  for (let i = 0; i < 4; i++) {
-    arrayAnswer[i].innerText = Questions[counter].answer[i];
   }
 };
-Question();
+let correctAnswers = 0;
+let wrongAnswers = 0;
+const handleClickAnswer = function (e) {
+  const currentQuestion = questions[questionsCounter];
+  const clickedText = e.target.innerText;
+
+  if (questionsCounter < questions.length) {
+    if (currentQuestion.type === "multiple") {
+      if (clickedText === currentQuestion.correct_answer) {
+        correctAnswers++;
+      } else {
+        wrongAnswers++;
+      }
+    }
+    if (currentQuestion.type === "boolean") {
+      console.log(e);
+      if (clickedText === currentQuestion.correct_answer) {
+        correctAnswers++;
+      } else {
+        wrongAnswers++;
+      }
+      goToNextQuestion();
+    }
+  }
+  localStorage.setItem("correctAnswers", correctAnswers);
+  localStorage.setItem("wrongAnswers", wrongAnswers);
+};
+
+const renderQuestion = () => {
+  const currentQuestion = questions[questionsCounter];
+
+  let allAnswers = []; // empties array
+  questionElement.innerText = currentQuestion.question; // renders the question title
+  allAnswers = currentQuestion.incorrect_answers.concat(currentQuestion.correct_answer); // arranges all answers in an array
+  let shuffledAnswers = shuffleArray(allAnswers); // shuffled answers - used only for multiple
+
+  for (let i = 0; i < allAnswers.length; i++) {
+    let eachAnswer = document.querySelector(`#answer${i + 1}`);
+
+    if (currentQuestion.type === "multiple") {
+      typeOfQuestionText.innerText = "Multiple selection";
+      eachAnswer.innerText = shuffledAnswers[i];
+      document.getElementById("answer2").style.display = "";
+      document.getElementById("answer3").style.display = "";
+      typeOfQuestionBtn.style.display = "block";
+    }
+    if (currentQuestion.type === "boolean") {
+      eachAnswer.innerText = allAnswers[i];
+      typeOfQuestionText.innerText = "Single Selection";
+      typeOfQuestionBtn.style.display = "none";
+
+      // workaround to clear last two elements of array if it is a boolean after a multiple
+      if (document.getElementById("answer2") || document.getElementById("answer3")) {
+        document.getElementById("answer2").style.display = "none";
+        document.getElementById("answer3").style.display = "none";
+      }
+    }
+  }
+  attachAnswerListeners(allAnswers);
+};
+
+currentQuestionNumber.innerText = questionsCounter + 1;
+typeOfQuestionBtn.onclick = goToNextQuestion;
+renderQuestion();
