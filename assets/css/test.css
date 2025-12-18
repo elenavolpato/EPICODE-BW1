@@ -32,7 +32,7 @@ header #timerSeconds p {
 }
 
 main {
-  margin-top: 15%;
+  margin-top: 8%;
 }
 
 #time {
@@ -74,6 +74,7 @@ main {
 
 main h2 {
   text-align: center;
+  font-size: 250%;
 }
 
 h3 {

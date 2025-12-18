@@ -7,18 +7,18 @@ const circleAbove = document.getElementById("upperCircle");
 
 let questionsCounter = 0;
 
-// const timer = setInterval(() => {
-//   if (parseInt(numberCountDown.innerText) > 0) {
-//     numberCountDown.innerText -= 1;
-//   } else {
-//     questionsCounter++;
-//     currentQuestionNumber.innerText = questionsCounter;
-//     numberCountDown.innerText = 60;
-//     if (questionsCounter >= questions.length) window.location.href = "./results.html";
-//     renderQuestion();
-//   }
-//   circleAbove.style.strokeDashoffset = -(408 - (408 * parseInt(numberCountDown.innerText)) / 60);
-// }, 1000);
+const timer = setInterval(() => {
+  if (parseInt(numberCountDown.innerText) > 0) {
+    numberCountDown.innerText -= 1;
+  } else {
+    questionsCounter++;
+    currentQuestionNumber.innerText = questionsCounter;
+    numberCountDown.innerText = 60;
+    if (questionsCounter >= questions.length) window.location.href = "./results.html";
+    renderQuestion();
+  }
+  circleAbove.style.strokeDashoffset = -(408 - (408 * parseInt(numberCountDown.innerText)) / 60);
+}, 1000);
 
 const questions = [
   {
@@ -33,7 +33,7 @@ const questions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+    question: "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
     correct_answer: "Final",
     incorrect_answers: ["Static", "Private", "Public"],
   },
@@ -141,13 +141,16 @@ let correctAnswers = 0;
 let wrongAnswers = 0;
 
 const handleClickAnswer = function (e) {
+  const allElement = document.querySelectorAll("#answers div");
+  //remove the class for the selected btn from all the divs
+  allElement.forEach((element) => element.classList.remove("selectedAnswer"));
+
   typeOfQuestionBtn.disabled = false;
   const currentQuestion = questions[questionsCounter];
   const clickedText = e.target.innerText;
 
   const clickedElement = e.currentTarget;
-  const allElement = document.querySelectorAll("#answers div");
-  allElement.forEach((element) => element.classList.remove("selectedAnswer"));
+  //add the class for the selected btn to the target div
   clickedElement.classList.add("selectedAnswer");
 
   if (questionsCounter < questions.length) {
