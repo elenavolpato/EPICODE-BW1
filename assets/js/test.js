@@ -140,36 +140,49 @@ const attachAnswerListeners = function (arr) {
 let correctAnswers = 0;
 let wrongAnswers = 0;
 
+const userAnswers = {}; // Store user's answer for each question
+
 const handleClickAnswer = function (e) {
   typeOfQuestionBtn.disabled = false;
   const currentQuestion = questions[questionsCounter];
   const clickedText = e.target.innerText;
-
   const allElement = document.querySelectorAll("#answers div");
-  //remove the class for the selected btn from all the divs
+
+  // Remove the class for the selected btn from all the divs
   allElement.forEach((element) => element.classList.remove("selectedAnswer"));
   const clickedElement = e.currentTarget;
-  //add the class for the selected btn to the target div
+
+  // Add the class for the selected btn to the target div
   clickedElement.classList.add("selectedAnswer");
 
-  if (questionsCounter < questions.length) {
-    if (currentQuestion.type === "multiple") {
-      if (clickedText === currentQuestion.correct_answer) {
-        correctAnswers++;
-      } else {
-        wrongAnswers++;
-      }
-    }
-    if (currentQuestion.type === "boolean") {
-      console.log(e);
-      if (clickedText === currentQuestion.correct_answer) {
-        correctAnswers++;
-      } else {
-        wrongAnswers++;
-      }
-      goToNextQuestion();
+  // Check if user already answered this question
+  const previousAnswer = userAnswers[questionsCounter];
+  const isCorrectAnswer = clickedText === currentQuestion.correct_answer;
+
+  // If there was a previous answer, undo its effect
+  if (previousAnswer !== undefined) {
+    if (previousAnswer === true) {
+      correctAnswers--;
+    } else {
+      wrongAnswers--;
     }
   }
+
+  // Add the new answer
+  if (isCorrectAnswer) {
+    correctAnswers++;
+  } else {
+    wrongAnswers++;
+  }
+
+  // Store the current answer for this question
+  userAnswers[questionsCounter] = isCorrectAnswer;
+
+  console.log("Question:", questionsCounter);
+  console.log("Wrong:", wrongAnswers);
+  console.log("Right:", correctAnswers);
+  console.log("Total:", correctAnswers + wrongAnswers);
+
   localStorage.setItem("correctAnswers", correctAnswers);
   localStorage.setItem("wrongAnswers", wrongAnswers);
 };
@@ -189,16 +202,12 @@ const renderQuestion = () => {
     let eachAnswer = document.querySelector(`#answer${i + 1}`);
 
     if (currentQuestion.type === "multiple") {
-      typeOfQuestionText.innerText = "Multiple selection";
       eachAnswer.innerText = shuffledAnswers[i];
       document.getElementById("answer2").style.display = "";
       document.getElementById("answer3").style.display = "";
-      typeOfQuestionBtn.style.display = "block";
     }
     if (currentQuestion.type === "boolean") {
       eachAnswer.innerText = allAnswers[i];
-      typeOfQuestionText.innerText = "Single Selection";
-      typeOfQuestionBtn.style.display = "none";
 
       // workaround to clear last two elements of array if it is a boolean after a multiple
       if (document.getElementById("answer2") || document.getElementById("answer3")) {
