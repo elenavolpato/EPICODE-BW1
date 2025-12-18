@@ -113,6 +113,7 @@ const goToNextQuestion = function () {
     return;
   }
   currentQuestionNumber.innerText = questionsCounter + 1;
+  typeOfQuestionBtn.disabled = true;
   renderQuestion();
 };
 
@@ -136,7 +137,9 @@ const attachAnswerListeners = function (arr) {
 };
 let correctAnswers = 0;
 let wrongAnswers = 0;
+
 const handleClickAnswer = function (e) {
+  typeOfQuestionBtn.disabled = false;
   const currentQuestion = questions[questionsCounter];
   const clickedText = e.target.innerText;
 
@@ -197,4 +200,5 @@ const renderQuestion = () => {
 
 currentQuestionNumber.innerText = questionsCounter + 1;
 typeOfQuestionBtn.onclick = goToNextQuestion;
+typeOfQuestionBtn.disabled = true;
 renderQuestion();
