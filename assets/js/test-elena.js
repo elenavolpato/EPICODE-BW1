@@ -3,21 +3,22 @@ const questionElement = document.querySelector("#question");
 const currentQuestionNumber = document.getElementById("currentQuestionNumber");
 const typeOfQuestionText = document.getElementById("typeOfQuestionText");
 const typeOfQuestionBtn = document.getElementById("typeOfQuestionBtn");
+const circleAbove = document.getElementById("upperCircle");
 
 let questionsCounter = 0;
 
-/* const timer = setInterval(() => {
+const timer = setInterval(() => {
   if (parseInt(numberCountDown.innerText) > 0) {
     numberCountDown.innerText -= 1;
   } else {
     questionsCounter++;
     currentQuestionNumber.innerText = questionsCounter;
     numberCountDown.innerText = 30;
-    currentQuestionNumber;
-    if (questionsCounter >= questions.length) window.location.href = "results.html";
+    if (questionsCounter >= questions.length) window.location.href = "./results.html";
     renderQuestion();
   }
-}, 1000); */
+  circleAbove.style.strokeDashoffset = -(408 - (408 * parseInt(numberCountDown.innerText)) / 30);
+}, 1000);
 
 const questions = [
   {

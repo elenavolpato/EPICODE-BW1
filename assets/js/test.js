@@ -7,6 +7,20 @@ const answer3 = document.querySelector("#answer3");
 const answer4 = document.querySelector("#answer4");
 const risposteSingole = document.querySelectorAll(".answer");
 const numerator = document.querySelector("#numerator");
+
+const timer = setInterval(() => {
+  if (parseInt(numberCountDown.innerText) > 0) {
+    numberCountDown.innerText -= 1;
+  } else {
+    questionsCounter++;
+    currentQuestionNumber.innerText = questionsCounter;
+    numberCountDown.innerText = 30;
+    currentQuestionNumber;
+    if (questionsCounter >= questions.length) window.location.href = "results.html";
+    renderQuestion();
+  }
+}, 1000);
+
 let counter = 0;
 let n = 0;
 let answerTrue = [];
@@ -73,20 +87,20 @@ risposteSingole.forEach((risposta) => {
     else window.location.href = "results.html";
   };
 });
-const timer = setInterval(() => {
-  if (parseInt(numberCountDown.innerText) > 0) {
-    numberCountDown.innerText -= 1;
-  } else {
-    counter++;
-    answerFalse.push("*");
-    numerator.innerText = counter;
-    numberCountDown.innerText = 5;
-    numerator;
+// const timer = setInterval(() => {
+//   if (parseInt(numberCountDown.innerText) > 0) {
+//     numberCountDown.innerText -= 1;
+//   } else {
+//     counter++;
+//     answerFalse.push("*");
+//     numerator.innerText = counter;
+//     numberCountDown.innerText = 5;
+//     numerator;
 
-    if (counter >= 5) window.location.href = "results.html";
-    Question();
-  }
-}, 1000);
+//     if (counter >= 5) window.location.href = "results.html";
+//     Question();
+//   }
+// }, 1000);
 
 const Question = () => {
   question.innerText = Questions[counter].question;
