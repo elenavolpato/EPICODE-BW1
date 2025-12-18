@@ -13,11 +13,11 @@ const timer = setInterval(() => {
   } else {
     questionsCounter++;
     currentQuestionNumber.innerText = questionsCounter;
-    numberCountDown.innerText = 30;
+    numberCountDown.innerText = 60;
     if (questionsCounter >= questions.length) window.location.href = "./results.html";
     renderQuestion();
   }
-  circleAbove.style.strokeDashoffset = -(408 - (408 * parseInt(numberCountDown.innerText)) / 30);
+  circleAbove.style.strokeDashoffset = -(408 - (408 * parseInt(numberCountDown.innerText)) / 60);
 }, 1000);
 
 const questions = [
@@ -113,7 +113,7 @@ const goToNextQuestion = function () {
     return;
   }
   circleAbove.style.strokeDashoffset = 408;
-  numberCountDown.innerText = 30;
+  numberCountDown.innerText = 60;
   currentQuestionNumber.innerText = questionsCounter + 1;
   renderQuestion();
 };
