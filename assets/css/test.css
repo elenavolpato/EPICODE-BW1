@@ -101,6 +101,10 @@ h3 {
   font-weight: 600;
 }
 
+#answers .selectedAnswer {
+  background: linear-gradient(180deg, #be008c 0%, #8d007a 100%) padding-box, linear-gradient(175deg, rgba(246, 246, 248, 1) 0%, #b91592 100%) border-box;
+}
+
 #answers div:hover {
   background: linear-gradient(180deg, #be008c 0%, #8d007a 100%) padding-box, linear-gradient(175deg, rgba(246, 246, 248, 1) 0%, #b91592 100%) border-box;
 }

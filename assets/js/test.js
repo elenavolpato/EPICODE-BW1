@@ -7,18 +7,18 @@ const circleAbove = document.getElementById("upperCircle");
 
 let questionsCounter = 0;
 
-const timer = setInterval(() => {
-  if (parseInt(numberCountDown.innerText) > 0) {
-    numberCountDown.innerText -= 1;
-  } else {
-    questionsCounter++;
-    currentQuestionNumber.innerText = questionsCounter;
-    numberCountDown.innerText = 60;
-    if (questionsCounter >= questions.length) window.location.href = "./results.html";
-    renderQuestion();
-  }
-  circleAbove.style.strokeDashoffset = -(408 - (408 * parseInt(numberCountDown.innerText)) / 60);
-}, 1000);
+// const timer = setInterval(() => {
+//   if (parseInt(numberCountDown.innerText) > 0) {
+//     numberCountDown.innerText -= 1;
+//   } else {
+//     questionsCounter++;
+//     currentQuestionNumber.innerText = questionsCounter;
+//     numberCountDown.innerText = 60;
+//     if (questionsCounter >= questions.length) window.location.href = "./results.html";
+//     renderQuestion();
+//   }
+//   circleAbove.style.strokeDashoffset = -(408 - (408 * parseInt(numberCountDown.innerText)) / 60);
+// }, 1000);
 
 const questions = [
   {
@@ -144,6 +144,11 @@ const handleClickAnswer = function (e) {
   typeOfQuestionBtn.disabled = false;
   const currentQuestion = questions[questionsCounter];
   const clickedText = e.target.innerText;
+
+  const clickedElement = e.currentTarget;
+  const allElement = document.querySelectorAll("#answers div");
+  allElement.forEach((element) => element.classList.remove("selectedAnswer"));
+  clickedElement.classList.add("selectedAnswer");
 
   if (questionsCounter < questions.length) {
     if (currentQuestion.type === "multiple") {
