@@ -3,8 +3,8 @@ let falseAnswers = localStorage.getItem("wrongAnswers");
 let totalAnswers = parseInt(trueAnswers) + parseInt(falseAnswers);
 
 console.log(totalAnswers);
-let percentualiL = (trueAnswers / totalAnswers) * 100;
-let percentualiR = (falseAnswers / totalAnswers) * 100;
+let percentualiL = parseInt((trueAnswers / totalAnswers) * 100);
+let percentualiR = parseInt((falseAnswers / totalAnswers) * 100);
 
 const canvas = document.querySelector("#grafico");
 const numLeft = document.querySelector("#percentageNumberLeft");
