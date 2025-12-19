@@ -8,10 +8,7 @@ body {
   width: 80%;
   margin-inline: auto;
 }
-header img {
-  width: 15%;
-  padding-top: 5%;
-}
+
 header #timerSeconds {
   position: absolute;
   display: flex;
@@ -32,7 +29,7 @@ header #timerSeconds p {
 }
 
 main {
-  margin-top: 8%;
+  height: calc(100vh - 200px);
 }
 
 #time {

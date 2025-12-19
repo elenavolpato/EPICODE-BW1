@@ -17,7 +17,7 @@ const timer = setInterval(() => {
     if (questionsCounter >= questions.length) window.location.href = "./results.html";
     renderQuestion();
   }
-  circleAbove.style.strokeDashoffset = -(314 - (314 * parseInt(numberCountDown.innerText)) / 60);
+  circleAbove.style.strokeDashoffset = -(408 - (408 * parseInt(numberCountDown.innerText)) / 60);
 }, 1000);
 
 const questions = [
@@ -159,6 +159,7 @@ const handleClickAnswer = function (e) {
   const previousAnswer = userAnswers[questionsCounter];
   const isCorrectAnswer = clickedText === currentQuestion.correct_answer;
 
+  console.log(previousAnswer);
   // If there was a previous answer, undo its effect
   if (previousAnswer !== undefined) {
     if (previousAnswer === true) {

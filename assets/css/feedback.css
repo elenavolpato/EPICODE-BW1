@@ -17,7 +17,7 @@ p {
   font-size: 25px;
 }
 
-#infoBtn {
+.next-btn {
   background-color: #00ffff;
   padding: 1rem 3rem;
   border: none;
@@ -34,6 +34,7 @@ p {
   border-bottom: 1px solid #c2128d;
   background-color: transparent;
   height: 2rem;
+  color: white;
 }
 
 #commentInput::placeholder {
