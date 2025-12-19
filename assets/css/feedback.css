@@ -2,6 +2,10 @@ body * {
   box-sizing: border-box;
 }
 
+main {
+  height: unset;
+}
+
 section {
   text-align: center;
 }
