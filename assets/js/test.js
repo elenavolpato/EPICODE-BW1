@@ -17,7 +17,7 @@ const timer = setInterval(() => {
     if (questionsCounter >= questions.length) window.location.href = "./results.html";
     renderQuestion();
   }
-  circleAbove.style.strokeDashoffset = -(408 - (408 * parseInt(numberCountDown.innerText)) / 60);
+  circleAbove.style.strokeDashoffset = -(314 - (314 * parseInt(numberCountDown.innerText)) / 60);
 }, 1000);
 
 const questions = [
@@ -112,7 +112,7 @@ const goToNextQuestion = function () {
     window.location.href = "results.html";
     return;
   }
-  circleAbove.style.strokeDashoffset = 408;
+  circleAbove.style.strokeDashoffset = 314;
   numberCountDown.innerText = 60;
   currentQuestionNumber.innerText = questionsCounter + 1;
   typeOfQuestionBtn.disabled = true;
@@ -199,7 +199,17 @@ const renderQuestion = () => {
   allAnswers = currentQuestion.incorrect_answers.concat(currentQuestion.correct_answer); // arranges all answers in an array
   let shuffledAnswers = shuffleArray(allAnswers); // shuffled answers - used only for multiple
 
-  for (let i = 0; i < allAnswers.length; i++) {
+  // changed casuse the condition of the prevoius was always true, and doesn't need to be inside of the loop
+  // now if it's boolean remove the unnecessary div first
+  if (currentQuestion.type === "boolean") {
+    document.getElementById("answer3").style.display = "none";
+    document.getElementById("answer4").style.display = "none";
+  } else {
+    document.getElementById("answer3").style.display = "";
+    document.getElementById("answer4").style.display = "";
+  }
+
+  for (let i = 0; i < 4; i++) {
     let eachAnswer = document.querySelector(`#answer${i + 1}`);
 
     if (currentQuestion.type === "multiple") {
@@ -208,13 +218,19 @@ const renderQuestion = () => {
       document.getElementById("answer3").style.display = "";
     }
     if (currentQuestion.type === "boolean") {
-      eachAnswer.innerText = allAnswers[i];
+      if (i < allAnswers.length) {
+        eachAnswer.innerText = allAnswers[i];
+      } else {
+        eachAnswer.innerText = "";
+      }
+
+      // moved out from the loop
 
       // workaround to clear last two elements of array if it is a boolean after a multiple
-      if (document.getElementById("answer2") || document.getElementById("answer3")) {
-        document.getElementById("answer2").style.display = "none";
-        document.getElementById("answer3").style.display = "none";
-      }
+      // if (document.getElementById("answer2") || document.getElementById("answer3")) {
+      //   document.getElementById("answer2").style.display = "none";
+      //   document.getElementById("answer3").style.display = "none";
+      // }
     }
   }
   attachAnswerListeners(allAnswers);
