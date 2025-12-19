@@ -1,14 +1,12 @@
 body {
   margin: 0 auto;
-  max-width: 90%;
+  max-width: 1080px;
 }
-header img {
-  width: 15%;
-  margin-top: 2%;
+
+.logo-epicode {
+  margin-left: 140px;
 }
-main {
-  margin-top: -5%;
-}
+
 #firstSection {
   width: 50%;
   margin-inline: auto;
@@ -107,9 +105,7 @@ main {
   justify-content: center;
 }
 #button button {
-  width: 20%;
-  height: 20%;
-  padding-block: 1.5%;
+  padding: 1rem 4rem;
   background-color: transparent;
   color: rgb(255, 255, 255);
   opacity: 0.8;
@@ -118,4 +114,5 @@ main {
   font-size: 120%;
   border: 2px solid white;
   box-shadow: 2px 0px 10px rgb(142, 142, 142);
+  cursor: pointer;
 }

@@ -12,6 +12,13 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+main {
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 h1,
 h2,
 h3,

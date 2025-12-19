@@ -8,10 +8,7 @@ body {
   width: 80%;
   margin-inline: auto;
 }
-header img {
-  width: 15%;
-  padding-top: 5%;
-}
+
 header #timerSeconds {
   position: absolute;
   display: flex;
@@ -22,17 +19,17 @@ header #timerSeconds {
 }
 header #timerSeconds h1 {
   margin-block: -10%;
-  font-size: 340%;
+  font-size: 270%;
   opacity: 0.8;
 }
 
 header #timerSeconds p {
   opacity: 0.8;
-  font-size: 70%;
+  font-size: 55%;
 }
 
 main {
-  margin-top: 8%;
+  height: calc(100vh - 200px);
 }
 
 #time {
@@ -45,19 +42,20 @@ main {
 }
 
 #time .circle {
-  position: relative;
+  position: absolute;
   width: 150px;
   height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
+  top: 10px;
 }
 
 #time .circle svg circle {
   width: 100%;
   height: 100%;
   fill: transparent;
-  stroke-width: 15;
+  stroke-width: 12;
   transform: translate(5px, 5px);
 }
 
@@ -73,15 +71,16 @@ main {
 }
 
 main h2 {
+  margin-top: 80px;
   text-align: center;
-  font-size: 250%;
+  font-size: 2.3rem;
 }
 
 h3 {
   color: white;
 }
 #answers {
-  margin-top: 10%;
+  margin-top: 5%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -114,7 +113,7 @@ h3 {
 }
 #qCounter {
   text-align: center;
-  margin-top: 10%;
+  margin-top: 6%;
 }
 
 #qCounter h3 {

@@ -31,3 +31,13 @@ new Chart(canvas, {
     cutout: "72%",
   },
 });
+
+const resultTitle = document.getElementById("titleCakeId");
+const resultSubtitle = document.getElementById("titleCakeSubtitle");
+const resultText = document.getElementById("titleCakeParagraph");
+
+if (trueAnswers < 6) {
+  resultTitle.innerText = "You failed";
+  resultSubtitle.innerText = "Rethink your life.";
+  resultText.innerText = "Secondo Nicola, Elena, Francesco e Antonino sei un idiota";
+}
